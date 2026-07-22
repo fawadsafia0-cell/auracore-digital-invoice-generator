@@ -1,4 +1,5 @@
-const CACHE_NAME = 'aura-core-invoice-v1';
+
+const CACHE_NAME = 'aura-core-invoice-v2';
 const FILES_TO_CACHE = [
     './index.html',
     './manifest.json',
@@ -24,17 +25,22 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
+// Network-first: always try to fetch the latest version first.
+// Only fall back to the cached copy if the network request fails (offline).
+// This means every update you push reaches the phone on the very next
+// visit, instead of being stuck behind an old cached copy.
 self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request).then((cached) => {
-            return (
-                cached ||
-                fetch(event.request).catch(() => {
-                    if (event.request.mode === 'navigate') {
-                        return caches.match('./index.html');
-                    }
-                })
-            );
-        })
+        fetch(event.request)
+            .then((response) => {
+                const clone = response.clone();
+                caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+                return response;
+            })
+            .catch(() => {
+                return caches.match(event.request).then((cached) => {
+                    return cached || (event.request.mode === 'navigate' ? caches.match('./index.html') : undefined);
+                });
+            })
     );
 });
