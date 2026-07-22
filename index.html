@@ -1199,16 +1199,23 @@ IBAN: PK00XXXX0000000000000000</textarea>
                             <div class="totals" id="p-totals"></div>
                         </div>
 
-                        <div class="below-grid">
+                        <div style="display:flex;justify-content:flex-end;margin-top:8px;">
+                            <div style="width:270px;">
+                                <h3
+                                    style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-faint);margin:0 0 8px;font-weight:700;">
+                                    Payment details</h3>
+                                <div class="body-text" id="p-bank"
+                                    style="font-size:12px;color:var(--ink-soft);line-height:1.65;white-space:pre-line;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="below-grid" style="grid-template-columns:1fr;">
                             <div>
                                 <h3>Notes</h3>
                                 <div class="body-text" id="p-notes"></div>
                                 <h3 style="margin-top:16px;">Terms</h3>
                                 <div class="body-text" id="p-terms"></div>
-                            </div>
-                            <div>
-                                <h3>Payment details</h3>
-                                <div class="body-text" id="p-bank"></div>
                             </div>
                         </div>
 
