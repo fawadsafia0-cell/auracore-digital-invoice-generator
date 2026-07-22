@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Invoice Generator">
     <title>Aura Core Digital — Invoice Generator</title>
     <link rel="icon" type="image/png"
         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE/UlEQVR4nO2WbYycVRXHf+c+zzOzs7vT2TIZ+0JfaCk23VqVRt6U0C9CDC2hgbRgghpNbTRW+0ENYBqX8kVCjEkjKsRkRRoQ2mhCqgQ+QBE0KImkbWxj2rQQ+0Ib6751drcz89z798PMdNd2Z3cW9JOe5Mlkzsv9/++555x74X9dbDbOkgxwswkxszA7Si2AJUUfeqEpZMYMSHLNXUjqAtYAuRni1bCdMbO/STIz01SOcTvgknLAtvFwbss5/rzcu3/ENg33gCchx8Kw8YiktUC1FYmWBCaBLwOeOcjjtx50uxgMZxQgEBrbnKIiAoR8iN3ntW5OQndkZmrUT3sZaDpLKhB49o/uy7e8xdO1DoizLmtghgND6IpMGIEaXW6eM++MOs+W0ioDzsy8pFsO8dhNb/F0mieXBFKEb5A0Qi0iimvgJpMwREognQ53Amhq9V4ATqYv67D7MTmcqy8oFCBRYPhEBy/v6CbnjNAeVvsE9rIZgP1s6apy3hmmJrhCIGsZXnokDq//KFP+y0uRCrEprf4HCTRlhNMKBJrdlrhAPk7o/1bKOy+49Jvf/eLgExsrdugNZz0ZYdMf9+wJEDdmTwClxsDRTn751Xw49Exx7GNrl42UR0dqn/r4jWd3P5CvvtHfrepAwmznXltj1RB+NOG1n2R18FddlfsfuOfsihXXDZ04/ne/8d71A9evvHXgt325cOzNLE4Gl0hoIn2t9tgOATkjLlS4b1fVln76Qu6n9/9s+ZLFywa+/eA3Tm7f9p1PXH0jbP9DQmlpoCoHBkaCkanB9O3QFoG6GOMe1t0nOud28IvNg4V9e34flt5sPLy/Q0lHzca9EUVGwMizKOT4yBkzazkFYXY3Gy6Cgaq44Y6UDTt99M7hPxW//puIuKNmY75uNxw1pKXhTnPGq43QlhfZLDLQCEigHMQNX6pRuMastECMByOqg8tTs27fnX6ULWNE7G6EtSzNNgjYFX+DGdkezyfvvkhFjsgZhsNTsYpX9fbQH3UmC35oZsclRWbmPxABjyfgJUyaYqaHIOTqhhqETj8nbHT9mWXRvc8Z9oPGG2LaxpyWQFdasM7YmaTYXZEIQ05k6CDLApbwuaiXrcN5u+YJwx4RMiC0Kr6JdaYQaU9kttkP6731DtvtvfemiUJqvjYCUuI6xnOa/56L3JvAbjM7ImQIZgJvRejSp6PKalhFDaso6arGV5B01SXd++r6d/KK1Lyj+xpd1oejPqln9QZtJclUSknRU09tvcLW1zd9qzcZRYDv6elZFyysGhkc6S+VShnvfSGXyxlAsVgcPPX+qa9YsGqmmPm1lU1pNo0ztUx84cKFsTt+PjwydoDvI0ZcxLu1Km+7hIjAchOrXcTvrErFR2yIx9nz4i6GAJtchBHGF5y5awtzC4tqaW2hUFweKw8btmp0dPRROS20YE+OnR971GQlLjJYVTWWs7nH9nZvXbyy7LxnKAS+FsfcJnGtGccF8yU+o5i8GecrPTzfBG0S8KVSqbviKy9Eiso4ViCOWrCDkoyIdUNzht4ulAsxEbe54PZJKiroryQ4vK470Fv+56KUEw4qgh0Sn8VYA7zi4HQq5kWwnMC7ebjYPLl2zvwDyfrvcfVdD7FiJr/Lq9Jdptckfdr4nRyjSf5+06Z6q/b2op076wOorw+3E+gDjqzGeg9P2P67ImymDvi/APwL0fpJAK3vzFcAAAAASUVORK5CYII=">
@@ -945,6 +949,96 @@
 
             .stat-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .topbar {
+                padding: 0 12px;
+                height: 56px;
+            }
+
+            .brand img {
+                height: 28px;
+                width: auto;
+            }
+
+            .brand .names b {
+                font-size: 9px;
+            }
+
+            .wordmark {
+                font-size: 14px !important;
+            }
+
+            .tabs {
+                padding: 3px;
+                gap: 2px;
+            }
+
+            .tabs button {
+                padding: 7px 10px;
+                font-size: 12px;
+            }
+
+            .topbar .newbtn {
+                padding: 7px 10px;
+                font-size: 12px;
+            }
+
+            .dash-wrap {
+                padding: 20px 14px 60px;
+            }
+
+            .dash-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .search-box {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 14px 14px;
+            }
+
+            .stat-card .value {
+                font-size: 19px;
+            }
+
+            .table-card {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table.hist {
+                min-width: 640px;
+            }
+
+            .panel-pane {
+                padding: 18px 16px 90px;
+            }
+
+            .preview-wrap {
+                padding: 16px 12px 60px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .sheet {
+                width: 820px;
+                padding: 34px 30px;
+            }
+
+            .actions {
+                padding-bottom: env(safe-area-inset-bottom, 0px);
             }
         }
     </style>
